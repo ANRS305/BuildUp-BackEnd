@@ -17,7 +17,7 @@ namespace BuildUp.Models
         public string Nome { get; set; }
 
         [Column("foto_perfil")]
-        public string Foto_Perfil { get; set; }
+        public string? Foto_Perfil { get; set; }
 
         [Column("descricao")]
         public string Descricao { get; set; }
@@ -39,13 +39,15 @@ namespace BuildUp.Models
 
         [Column("email")]
         public string Email { get; set; }
+
         [Column("disponivel")]
         public bool Disponivel { get; set; }
 
         [Column("id_especialidade")]
         public int Id_Especialidade { get; set; }
 
-        [ForeignKey("id_especialidade")]
-        public Especialidade Especialidade { get; set; }
+        [ForeignKey(nameof(Id_Especialidade))]
+        public virtual Especialidade Especialidade { get; set; }
+
     }
 }

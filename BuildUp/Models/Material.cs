@@ -28,7 +28,7 @@ namespace BuildUp.Models
         [Column("id_fornecedor")]
         public int Id_Fornecedor { get; set; }
 
-        [ForeignKey("id_fornecedor")]
-        public Fornecedor Fornecedor { get; set; }
+        [ForeignKey(nameof(Id_Fornecedor))]
+        public virtual Fornecedor Fornecedor { get; set; }
     }
 }

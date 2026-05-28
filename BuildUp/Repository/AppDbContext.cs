@@ -15,5 +15,8 @@ namespace BuildUp.Data
         public DbSet<Profissional> Profissionais { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Material> Materiais { get; set; }
+        public DbSet<Contratacao> Contratacoes { get; set; }
+        public DbSet<Orcamento> Orcamentos { get; set; }
+        public DbSet<ItemOrcamento> ItensOrcamentos { get; set; }
     }
 }
