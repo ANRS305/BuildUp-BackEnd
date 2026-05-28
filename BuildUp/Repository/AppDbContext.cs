@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-//using BuildUpAPI.Models;
+using BuildUp.Models;
 
-namespace BuildUpAPI.Data
+namespace BuildUp.Data
 {
     public class AppDbContext : DbContext
     {
@@ -9,25 +9,11 @@ namespace BuildUpAPI.Data
             : base(options)
         {
         }
-        /*
-                public DbSet<Usuario> Usuarios { get; set; }
 
-                public DbSet<Especialidade> Especialidades { get; set; }
-
-                public DbSet<Profissional> Profissionais { get; set; }
-
-                public DbSet<Orcamento> Orcamentos { get; set; }
-
-                public DbSet<Material> Materiais { get; set; }
-
-                public DbSet<ItemOrcamento> ItensOrcamento { get; set; }
-
-                public DbSet<Avaliacao> Avaliacoes { get; set; }
-
-                public DbSet<ChatIA> ChatsIA { get; set; }
-
-                public DbSet<Contratacao> Contratacoes { get; set; }
-
-                */
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Especialidade> Especialidades { get; set; }
+        public DbSet<Profissional> Profissionais { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
+        public DbSet<Material> Materiais { get; set; }
     }
 }
