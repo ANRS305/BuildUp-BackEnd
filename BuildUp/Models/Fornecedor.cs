@@ -16,6 +16,9 @@ namespace BuildUp.Models
         [Column("nome")]
         public string Nome { get; set; }
 
+        [Column("logo")]
+        public string? Logo { get; set; }
+
         [Column("cidade")]
         public string? Cidade { get; set; }
 
