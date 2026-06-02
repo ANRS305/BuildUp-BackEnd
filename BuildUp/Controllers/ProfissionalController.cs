@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BuildUp.Data;
+using BuildUp.DTO;
 using BuildUp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,25 @@ namespace BuildUp.Controllers
         public async Task<ActionResult<List<Profissional>>> Get()
         {
             return await _context.Profissionais.ToListAsync();
+        }
+
+        [HttpPut("{id}/disponibilidade")]
+        public async Task<IActionResult> AtualizarStatus(
+            int id,
+            [FromBody] StatusProfissionais dto)
+        {
+            var profissional = await _context.Profissionais.FindAsync(id);
+
+            if (profissional == null)
+            {
+                return NotFound("Profissional não encontrado");
+            }
+
+            profissional.Disponivel = dto.Disponivel;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(profissional);
         }
     }
 }

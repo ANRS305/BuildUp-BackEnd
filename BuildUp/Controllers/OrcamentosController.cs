@@ -20,7 +20,9 @@ namespace BuildUp.Controllers
         public async Task<IActionResult> SimularOrcamento([FromBody] Orcamento orcamentoRequest)
         {
             if (orcamentoRequest == null)
+            {
                 return BadRequest("Dados inválidos");
+            }
 
             var orcamento = new Orcamento
             {
@@ -43,7 +45,10 @@ namespace BuildUp.Controllers
 
             foreach (var material in materiais)
             {
-                int quantidade = CalcularQuantidade(material.Categoria, orcamento.Metragem);
+                int quantidade = CalcularQuantidade(
+                    material.Categoria,
+                    orcamento.Metragem
+                );
 
                 decimal preco = quantidade * material.Preco_Medio;
 
@@ -62,7 +67,8 @@ namespace BuildUp.Controllers
             }
 
             orcamento.Valor_Estimado = valorTotal;
-            orcamento.Tempo_Estimado = $"{Math.Ceiling(orcamento.Metragem / 25)} meses";
+            orcamento.Tempo_Estimado =
+                $"{Math.Ceiling(orcamento.Metragem / 25)} meses";
 
             await _context.SaveChangesAsync();
 
@@ -101,20 +107,25 @@ namespace BuildUp.Controllers
                 .FirstOrDefaultAsync(o => o.Id_Orcamento == id);
 
             if (orcamento == null)
+            {
                 return NotFound("Orçamento não encontrado");
+            }
 
             var itens = await _context.ItensOrcamentos
                 .Where(i => i.Id_Orcamento == id)
                 .ToListAsync();
 
-            var materiais = await _context.Materiais.ToListAsync();
+            var materiais = await _context.Materiais
+                .ToListAsync();
 
             var resultado = itens.Select(i => new
             {
                 i.Id_Item,
                 i.Quantidade,
                 i.Preco_Estimado,
-                Material = materiais.FirstOrDefault(m => m.Id_Material == i.Id_Material)
+                Material = materiais.FirstOrDefault(
+                    m => m.Id_Material == i.Id_Material
+                )
             });
 
             return Ok(new
@@ -123,7 +134,10 @@ namespace BuildUp.Controllers
                 itens = resultado
             });
         }
-        private int CalcularQuantidade(string categoria, decimal metragem)
+
+        private int CalcularQuantidade(
+            string categoria,
+            decimal metragem)
         {
             return categoria switch
             {

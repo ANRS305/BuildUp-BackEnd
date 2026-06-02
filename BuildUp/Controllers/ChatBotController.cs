@@ -1,3 +1,4 @@
+using BuildUp.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Text.Json;
@@ -20,7 +21,7 @@ public class ChatController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Chat([FromBody] MensagemDTO dto)
+    public async Task<IActionResult> Chat([FromBody] MensagemChat dto)
     {
         try
         {
@@ -137,9 +138,4 @@ public class ChatController : ControllerBase
             });
         }
     }
-}
-
-public class MensagemDTO
-{
-    public required string Mensagem { get; set; }
 }

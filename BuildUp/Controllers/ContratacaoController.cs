@@ -43,24 +43,30 @@ namespace BuildUp.Controllers
             return Ok(lista);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var item = await _context.Contratacoes.FindAsync(id);
 
             if (item == null)
+            {
                 return NotFound("Contratação não encontrada");
+            }
 
             return Ok(item);
         }
 
-        [HttpPut("id/status")]
-        public async Task<IActionResult> AtualizarStatus(int id, [FromBody] AtualizarStatus dto)
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> AtualizarStatus(
+            int id,
+            [FromBody] StatusOrcamento dto)
         {
             var contratacao = await _context.Contratacoes.FindAsync(id);
 
             if (contratacao == null)
+            {
                 return NotFound("Contratação não encontrada");
+            }
 
             contratacao.Status = dto.Status;
 

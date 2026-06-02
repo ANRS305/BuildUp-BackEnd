@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BuildUp.DTO
 {
-    public class AtualizarStatus
+    public class StatusProfissionais
     {
-        public string Status { get; set; }
+        public bool Disponivel { get; set; }
     }
 }
