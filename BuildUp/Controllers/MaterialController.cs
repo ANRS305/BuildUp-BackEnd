@@ -23,7 +23,9 @@ namespace BuildUp.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Material>>> Get()
         {
-            return await _context.Materiais.ToListAsync();
+            return await _context.Materiais
+                .Include(p => p.Fornecedor)
+                .ToListAsync();
         }
     }
 }
