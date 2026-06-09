@@ -24,7 +24,9 @@ namespace BuildUp.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Profissional>>> Get()
         {
-            return await _context.Profissionais.ToListAsync();
+            return await _context.Profissionais
+                .Include(p => p.Especialidade)
+                .ToListAsync();
         }
 
         [HttpPut("{id}/disponibilidade")]
