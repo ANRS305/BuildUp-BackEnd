@@ -81,60 +81,6 @@ namespace BuildUp.Controllers
             });
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var lista = await _context.Orcamentos
-                .ToListAsync();
-
-            return Ok(lista);
-        }
-
-        [HttpGet("usuario/{idUsuario}")]
-        public async Task<IActionResult> GetByUsuario(int idUsuario)
-        {
-            var lista = await _context.Orcamentos
-                .Where(o => o.Id_Usuario == idUsuario)
-                .ToListAsync();
-
-            return Ok(lista);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var orcamento = await _context.Orcamentos
-                .FirstOrDefaultAsync(o => o.Id_Orcamento == id);
-
-            if (orcamento == null)
-            {
-                return NotFound("Orçamento não encontrado");
-            }
-
-            var itens = await _context.ItensOrcamentos
-                .Where(i => i.Id_Orcamento == id)
-                .ToListAsync();
-
-            var materiais = await _context.Materiais
-                .ToListAsync();
-
-            var resultado = itens.Select(i => new
-            {
-                i.Id_Item,
-                i.Quantidade,
-                i.Preco_Estimado,
-                Material = materiais.FirstOrDefault(
-                    m => m.Id_Material == i.Id_Material
-                )
-            });
-
-            return Ok(new
-            {
-                orcamento,
-                itens = resultado
-            });
-        }
-
         private int CalcularQuantidade(
             string categoria,
             decimal metragem)
