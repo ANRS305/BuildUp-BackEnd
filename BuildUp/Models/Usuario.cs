@@ -25,6 +25,9 @@ namespace BuildUp.Models
         [Column("telefone")]
         public string Telefone { get; set; }
 
+        [Column("token")]
+        public string? Token { get; set; }
+
         [Column("data_cadastro")]
         public DateTime Data_Cadastro { get; set; }
     }
