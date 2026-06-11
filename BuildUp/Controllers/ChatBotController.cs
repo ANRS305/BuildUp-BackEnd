@@ -1,6 +1,5 @@
 using BuildUp.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -19,40 +18,6 @@ public class ChatController : ControllerBase
     {
         _configuration = configuration;
         _httpClient = factory.CreateClient();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Perguntar([FromBody] MensagemChat dto)
-    {
-        var token = Environment.GetEnvironmentVariable("HF_TOKEN");
-
-        if (string.IsNullOrEmpty(token))
-            return BadRequest("Token não configurado.");
-
-        using var client = new HttpClient();
-
-        client.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", token);
-
-        var request = new
-        {
-            inputs = dto.Mensagem
-        };
-
-        var content = new StringContent(
-            JsonSerializer.Serialize(request),
-            Encoding.UTF8,
-            "application/json"
-        );
-
-        var response = await client.PostAsync(
-            "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.3",
-            content
-        );
-
-        var result = await response.Content.ReadAsStringAsync();
-
-        return Ok(result);
     }
 
     [HttpPost]
