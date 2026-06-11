@@ -1,0 +1,15 @@
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\BuildUp.exe
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\appsettings.Development.json
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\BuildUp.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\BuildUp.runtimeconfig.json
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\BuildUp.pdb
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Microsoft.EntityFrameworkCore.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Microsoft.OpenApi.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\MySqlConnector.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\DS02\Documents\GitHub\BuildUp-BackEnd\BuildUp\bin\release\net9.0\publish\BuildUp.deps.json
