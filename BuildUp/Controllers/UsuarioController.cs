@@ -34,7 +34,8 @@ namespace BuildUpAPI.Controllers
                 Email = dto.Email,
                 Senha = dto.Senha,
                 Telefone = dto.Telefone,
-                Data_Cadastro = DateTime.Now
+                Data_Cadastro = DateTime.Now,
+                Token = null
             };
 
             _context.Usuarios.Add(usuario);
@@ -60,12 +61,43 @@ namespace BuildUpAPI.Controllers
                 return Unauthorized("Email ou senha inválidos.");
             }
 
+            string token = Guid.NewGuid().ToString();
+
+            usuario.Token = token;
+
+            await _context.SaveChangesAsync();
+
             return Ok(new
             {
                 mensagem = "Login realizado com sucesso.",
-                usuario.Id_Usuario,
-                usuario.Nome,
-                usuario.Email
+                token,
+                usuario = new
+                {
+                    usuario.Id_Usuario,
+                    usuario.Nome,
+                    usuario.Email
+                }
+            });
+        }
+
+        [HttpPost("logout/{id}")]
+        public async Task<IActionResult> Logout(int id)
+        {
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Id_Usuario == id);
+
+            if (usuario == null)
+            {
+                return NotFound("Usuário não encontrado.");
+            }
+
+            usuario.Token = null;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                mensagem = "Logout realizado com sucesso."
             });
         }
     }
