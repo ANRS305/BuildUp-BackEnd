@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuildUp.Models
 {
+    [Table("contratacoes")]
     public class Contratacao
     {
         [Key]

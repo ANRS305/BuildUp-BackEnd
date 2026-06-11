@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuildUp.Models
 {
+    [Table("materiais")]
     public class Material
     {
         [Key]
