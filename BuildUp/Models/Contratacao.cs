@@ -18,7 +18,7 @@ namespace BuildUp.Models
         public DateTime Data_Inicio { get; set; }
 
         [Column("data_conclusao")]
-        public DateTime Data_Conclusao { get; set; }
+        public DateTime? Data_Conclusao { get; set; }
 
         [Column("descricao_servico")]
         public string Descricao_Servico { get; set; }
