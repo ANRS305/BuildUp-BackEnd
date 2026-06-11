@@ -22,7 +22,8 @@ namespace BuildUp.Controllers
         {
             var contratacao = new Contratacao
             {
-                Data_Servico = dto.DataServico,
+                Data_Inicio = dto.DataInicio,
+                Data_Conclusao = dto.DataConclusao,
                 Descricao_Servico = dto.DescricaoServico,
                 Valor_Combinado = dto.ValorCombinado,
                 Id_Usuario = dto.IdUsuario,
