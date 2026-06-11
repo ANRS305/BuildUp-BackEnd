@@ -87,10 +87,14 @@ namespace BuildUp.Controllers
         {
             return categoria switch
             {
-                "Construção" => (int)(metragem * 2.2m),
-                "Acabamento" => (int)(metragem * 1.3m),
-                "Estrutura" => (int)(metragem * 1.8m),
-                _ => (int)(metragem * 0.8m)
+                "Casa" => (int)(metragem * 1.5m),
+                "Apartamento" => (int)(metragem * 1.3m),
+                "Hotel" => (int)(metragem * 2.5m),
+                "Escritório" => (int)(metragem * 2.0m),
+                "Comercial" => (int)(metragem * 2.4m),
+                "Chácara" => (int)(metragem * 1.4m),
+                "Área de Lazer" => (int)(metragem * 1.7m),
+                _ => (int)(metragem * 1.0m)
             };
         }
     }
