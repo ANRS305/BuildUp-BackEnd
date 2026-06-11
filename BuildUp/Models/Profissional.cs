@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BuildUp.Models
 {
-    [Table("profissionais")]
     public class Profissional
     {
         [Key]

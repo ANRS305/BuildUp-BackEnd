@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace BuildUp.Models
 {
-    [Table("especialidades")]
     public class Especialidade
     {
         [Key]

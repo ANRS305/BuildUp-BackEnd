@@ -7,9 +7,8 @@ namespace BuildUp.DTO
 {
     public class CriarContratacao
     {
-        public DateTime DataInicio { get; set; }
-        public DateTime DataConclusao { get; set; }
-        public string DescricaoServico { get; set; } = string.Empty;
+        public DateTime DataServico { get; set; }
+        public string DescricaoServico { get; set; }
         public decimal ValorCombinado { get; set; }
         public int IdUsuario { get; set; }
         public int IdProfissional { get; set; }

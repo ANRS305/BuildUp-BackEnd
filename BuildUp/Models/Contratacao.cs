@@ -7,18 +7,14 @@ using System.Threading.Tasks;
 
 namespace BuildUp.Models
 {
-    [Table("contratacoes")]
     public class Contratacao
     {
         [Key]
         [Column("id_contratacao")]
         public int Id_Contratacao { get; set; }
 
-        [Column("data_inicio")]
-        public DateTime Data_Inicio { get; set; }
-
-        [Column("data_conclusao")]
-        public DateTime? Data_Conclusao { get; set; }
+        [Column("data_servico")]
+        public DateTime Data_Servico { get; set; }
 
         [Column("descricao_servico")]
         public string Descricao_Servico { get; set; }

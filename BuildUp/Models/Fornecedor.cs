@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace BuildUp.Models
 {
-    [Table("fornecedores")]
     public class Fornecedor
     {
         [Key]
